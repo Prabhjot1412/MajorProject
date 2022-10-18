@@ -37,7 +37,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
 
       # custom columns for devise
       t.string :username
-      t.belongs_to :managable, polymorphic: true
+      t.integer :user_type, default: 0, null: false
     end
 
     add_index :users, :email,                unique: true
