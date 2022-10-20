@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ @import "font-awesome";
+
+nav.navbar{
+  background: rgba(255, 0, 64, 0.705) !important;
+}

@@ -72,3 +72,7 @@ group :test do
 end
 
 gem "devise", "~> 4.8"
+
+gem "font-awesome-sass", "~> 6.2"
+
+gem "scss", "~> 1.0"
