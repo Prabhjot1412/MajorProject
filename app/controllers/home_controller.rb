@@ -1,4 +1,7 @@
+require 'open-uri'
+
 class HomeController < ApplicationController
+  before_action :authenticate_user!, except: %i[homepage]
   @@count ||= 0
   def homepage
     @count = @@count
@@ -14,5 +17,15 @@ class HomeController < ApplicationController
   end
 
   def userdetails
+  end
+  
+  def upload
+    Avatar.create(name: 'keiji', avatar: params[:avatar])
+  end
+
+  def avatar
+    avatar = Avatar.find(params[:av])
+    current_user.avatar = avatar 
+    redirect_to root_path
   end
 end

@@ -1,1 +1,24 @@
-<h1>home#userdetails</h1>
+<div class="container">
+  <div class="details">
+    <h4>Name: <%=current_user.username%></h4>
+    <h4>Email: <%=current_user.email%></h4>
+
+  </div>
+  <%=form_with url: upload_path, method: :post do |form|%> <!--turn on the form to add avatars-->
+    <%=form.file_field :avatar%>
+    <%=form.submit%>
+  <%end%>
+  <hr>
+  <h3>Update Avatar</h3>
+  <div class="my-list">
+    <div class="row row-cols-6 m-1">
+      <%Avatar.all.each do |av|%>
+        <div class="m-1">
+          <%=button_to home_av_path(av), data: {turbo_method: :post, turbo_condfirm: "Set Avatar to #{av.name}?"} do%>
+            <%=image_tag av.avatar, size: '90x90'%>
+          <%end%>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
