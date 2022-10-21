@@ -10,25 +10,42 @@
             <i class="fa-solid fa-house"> H o m e</i>
           <%end%>
         </li>
-        <%unless user_signed_in?%>
+        <%if user_signed_in?%>
           <li class="nav-item">
-            <%= link_to new_user_session_path , class: "nav-link #{"active" if current_page?(new_user_session_path)}" do%>
-              <i class="fa-solid fa-arrow-right-to-bracket"> L o g I n</i>
+            <%= link_to doctor_index_path , class: "nav-link #{"active" if current_page?(doctor_index_path)}" do%>
+            <i class="fa-solid fa-user-doctor"> M a k e A p p o i n t m e n t</i>
             <%end%>
-          <li class="nav-item">
-            <%= link_to new_user_registration_path , class: "nav-link #{"active" if current_page?(new_user_registration_path)}" do%>
-            <i class="fa-solid fa-user-plus"> S i g n U p</i>
-            <%end%>
-          </li>
-        <%else%>
-        <li class="nav-item">
-          <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link #{"active" if current_page?(destroy_user_session_path)}" do%>
-          <i class="fa-solid fa-user-plus"> S i g n  O u t</i>
-          <%end%>
-        </li>
+          </li>        
         <%end%>
       </ul>
       
+    </div>
+    <div class="d-flex">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <%unless user_signed_in?%>
+            <li class="nav-item">
+              <%= link_to new_user_registration_path , class: "nav-link #{"active" if current_page?(new_user_registration_path)}" do%>
+              <i class="fa-solid fa-user-plus"> S i g n U p</i>
+              <%end%>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_user_session_path , class: "nav-link #{"active" if current_page?(new_user_session_path)}" do%>
+                <i class="fa-solid fa-arrow-right-to-bracket"> L o g I n</i>
+              <%end%>
+            </li>
+          <%else%>
+          <li class="nav-item">
+            <%= link_to userdetails_path, class: "nav-link #{"active" if current_page?(userdetails_path)}" do%>
+            <i class="fa-solid fa-circle-info"> P r o f i l e</i>
+            <%end%>
+          </li>
+          <li class="nav-item">
+            <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link #{"active" if current_page?(destroy_user_session_path)}" do%>
+            <i class="fa-solid fa-user-plus"> S i g n  O u t</i>
+            <%end%>
+          </li>
+          <%end%>
+      </ul>
     </div>
   </div>
 </nav>

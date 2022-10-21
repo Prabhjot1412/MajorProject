@@ -1,0 +1,52 @@
+<turbo-stream action="replace" target="turbo-target">
+  <template>
+    <div id="turbo-target">
+<div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+  <!-- Indicators -->
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <!-- Inner -->
+  <div class="carousel-inner">
+    <!-- Single item -->
+    <div class="carousel-item active">
+      <img src="<%=StringService.new.image_paths[count]%>" class="d-block w-100" alt="Sunset Over the City"/>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>
+    </div>
+  <!-- Inner -->
+
+  <!-- Controls -->
+  <%=button_to carasoueler_path('prev'),class:"carousel-control-prev", method: :post, remote: true do%>
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  <%end%>
+  <%=button_to carasoueler_path('next'),class:"carousel-control-next", method: :post, remote: true do%>
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  <%end%>
+</div>
+    </div>
+  </template>
+</turbo-stream>

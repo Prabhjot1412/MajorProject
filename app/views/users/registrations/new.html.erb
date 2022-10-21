@@ -1,57 +1,53 @@
-<section class="h-100 h-custom" style="background-color: #8fc4b7;">
+<section class="vh-100">
   <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-8 col-xl-6">
-        <div class="card rounded-3">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
-            class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
-            alt="Sample photo">
-          <div class="card-body p-4 p-md-5">
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registration Info</h3>
-
-              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "px-md-2") do |f| %>
-              <div class="form-outline mb-4">
-                <%= f.label :username, class:"form-label" %><br />
-                <%= f.text_field :username %>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline mb-4">
-                    <%= f.label :email, class:"form-label" %><br />
-                    <%= f.email_field :email %>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
-                <div class="col-md-6">
-                  <div class="field">
-                    <%= f.label :password %>
-                    <% if @minimum_password_length %>
-                    <em>(<%= @minimum_password_length %> characters minimum)</em>
-                    <% end %><br />
-                    <%= f.password_field :password, autocomplete: "new-password" %>
-                  </div>
-                
-                  <div class="field">
-                    <%= f.label :password_confirmation %><br />
-                    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="actions">
-                <%= f.submit "Sign up", class:"btn btn-success btn-lg mb-1" %>
-              </div>
-              <%= render "devise/shared/error_messages", resource: resource %>
-              <%= link_to "Log in", new_session_path(resource_name), class:"btn btn-secondary mb-1" %><br />
-
-            <%end%>
-
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+          class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <!-- username-->
+          <div class="form-outline mb-4">
+            <%= f.label :username, class:"form-label" %><br />
+            <%= f.text_field :username %>
           </div>
-        </div>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <%= f.label :email, class:"form-label" %><br />
+            <%= f.email_field :email, class:"form-label"%>
+          </div>
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <%= f.label :password, class:"form-label" %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, class:"form-label", autocomplete: "new-password" %>
+          </div>
+          <div class="field">
+            <%= f.label :password_confirmation, class:"form-label" %><br />
+            <%= f.password_field :password_confirmation, class:"form-label", autocomplete: "new-password" %>
+          </div>
+
+          <!-- Submit button -->
+          <%= f.submit "sign up", class:"btn btn-primary btn-lg btn-block"%>
+
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+          </div>
+
+          <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
+            role="button">
+            <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
+          </a><br><br>
+          <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
+            role="button">
+            <i class="fab fa-twitter me-2"></i>Continue with Twitter</a>
+
+        </form>
+        <% end %>
+
       </div>
     </div>
   </div>
